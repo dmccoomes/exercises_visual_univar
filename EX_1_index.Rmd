@@ -1,0 +1,37 @@
+<br> 
+<center><img src="http://i.imgur.com/sSaOozN.png" width="500"></center>  
+
+## Course: Visual Analytics for Policy and Management: Exercise 1
+
+### By David Coomes
+
+### Univariate Case
+
+_____
+<a id='part1'></a>
+
+
+Bringing in the data
+
+```{r getData, eval=TRUE}
+link='https://github.com/EvansDataScience/VisualAnalytics_2_tabularData/raw/master/data/eduwa.rda'
+
+#getting the data TABLE from the file in the cloud:
+load(file=url(link))
+```
+
+
+```{r freqTab_rel, eval=TRUE}
+# relative values
+absoluteT=table(eduwa$LocaleType,exclude = 'nothing')
+prop.table(absoluteT)
+```
+
+This table tells us the location of the public schools. What is the right visual for this? Sometimes the answer seems obvious, as tradition or habits give so much weight to decisions. Let's use the very well known **pie chart**:
+
+```{r pieBasic, eval=TRUE}
+# the pie plots the table:
+ToPlot=prop.table(absoluteT)
+pie(ToPlot)
+```
+
